@@ -8,13 +8,13 @@ import Emoji5 from '/e5.gif'
 
 const emojis = [Emoji1, Emoji2, Emoji3, Emoji4, Emoji5];
 
-export default function EmojiBar() {
+export default function EmojiBar ({removeEffect}) {
     
     return (
         <div id='emoji-bar' className='flex-row'>
             {emojis.map((emoji, index) => (
-                <div key={index} id={`emoji-${index + 1}`} className='emoji'>
-                    <img src={emoji} alt={`rating-${index + 1}`} />
+                <div key={index} id={`emoji-${index + 1}`} className='emoji' onClick={removeEffect}>
+                    <img src={emoji} alt={`rating-${index + 1}`}  />
                 </div>
             ))}
         </div>

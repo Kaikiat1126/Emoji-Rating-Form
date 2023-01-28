@@ -7,13 +7,44 @@
 .emoji{
     width: 70px;
     height: 70px;
+    position: relative;
 
     img{
         width: 70px;
         height: 70px;
+
+        
+        -ms-transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        transform: scale(1.05);
+
+        &:hover{
+            cursor: pointer;
+        }
     }
 
-    &:hover{
-        cursor: pointer;
+}
+
+.greyEffect{
+    opacity: 0.45;
+}
+
+.lightEffect{
+    opacity: 1 !important;
+}
+
+#emoji-1, #emoji-2,
+#emoji-3, #emoji-4,
+#emoji-5
+{
+    img{
+        .greyEffect;
+
+        &:hover{
+            .lightEffect;
+        }
+        
     }
 }
