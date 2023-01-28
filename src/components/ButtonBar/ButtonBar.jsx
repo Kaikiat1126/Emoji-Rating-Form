@@ -8,7 +8,7 @@ export default function ButtonBar() {
             <button id='btnBlue' className='button disabled'>
                SUBMIT
             </button>
-            <button id='btnRed' className='button disabled'>
+            <button id='btnRed' className='button'>
                 CANCEL
             </button>
         </div>

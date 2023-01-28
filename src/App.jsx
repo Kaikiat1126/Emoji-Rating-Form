@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.less'
 import ButtonBar from './components/ButtonBar/ButtonBar'
+import EmojiBar from './components/EmojiBar/EmojiBar'
 
 export default function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +13,7 @@ export default function App() {
           <div id='heading-one'>Feedback Form</div>
           <div id='heading-two'>Your feedback is our motivation</div>
         </div>
-        <div id='emoji-bar'></div>
+        <EmojiBar />
         <div id='comment-area' className='hide'></div>
         <ButtonBar />
       </div>
