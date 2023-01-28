@@ -5,10 +5,10 @@ export default function ButtonBar() {
     
     return (
         <div id='button-bar' className='flex-row'>
-            <button id='btnBlue' className='button'>
+            <button id='btnBlue' className='button disabled'>
                SUBMIT
             </button>
-            <button id='btnRed' className='button'>
+            <button id='btnRed' className='button disabled'>
                 CANCEL
             </button>
         </div>

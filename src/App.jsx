@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.less'
-import ButtonBar from './components/ButtonBar'
+import ButtonBar from './components/ButtonBar/ButtonBar'
 
 export default function App() {
   const [count, setCount] = useState(0)
