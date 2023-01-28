@@ -4,7 +4,7 @@ import ButtonBar from './components/ButtonBar/ButtonBar'
 import EmojiBar from './components/EmojiBar/EmojiBar'
 
 export default function App() {
-  const [count, setCount] = useState(0)
+  const [initCmt, setCmtBox] = useState(false)
 
   const removeEffect = (e) => {
     const emoji = e.target;
@@ -17,6 +17,7 @@ export default function App() {
     }
 
     emoji.classList.add('lightEffect');
+    setCmtBox(true);
   }
 
   return (
@@ -27,8 +28,8 @@ export default function App() {
           <div id='heading-two'>Your feedback is our motivation</div>
         </div>
         <EmojiBar removeEffect={removeEffect}/>
-        <div id='comment-area' className='hide'></div>
-        <ButtonBar />
+        <div id='comment-area' className='hide'>hi</div>
+        <ButtonBar initCmt={initCmt}/>
       </div>
     </div>
   )
