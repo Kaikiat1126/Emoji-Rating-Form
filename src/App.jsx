@@ -21,7 +21,9 @@ export default function App() {
     setCmtBtn(true);
   }
 
-  const initCmtBox = () => {
+  const displayCommentBox = () => {
+    const commentBox = document.getElementById('comment-box');
+    commentBox.classList.remove('hide');
   }
 
   return (
@@ -33,7 +35,7 @@ export default function App() {
         </div>
         <EmojiBar removeEffect={removeEffect}/>
         <CommentBox />
-        <ButtonBar initCmt={initCmt}/>
+        <ButtonBar initCmt={initCmt} displayCommentBox={displayCommentBox}/>
       </div>
     </div>
   )
