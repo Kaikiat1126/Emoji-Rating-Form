@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './EmojiBar.less'
 import Emoji1 from '/e1.gif'
 import Emoji2 from '/e2.gif'
