@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './App.less'
 import ButtonBar from './components/ButtonBar/ButtonBar'
+import CommentBox from './components/CommentBox/CommentBox'
 import EmojiBar from './components/EmojiBar/EmojiBar'
 
 export default function App() {
-  const [initCmt, setCmtBox] = useState(false)
+  const [initCmt, setCmtBtn] = useState(false)
 
   const removeEffect = (e) => {
     const emoji = e.target;
@@ -17,7 +18,10 @@ export default function App() {
     }
 
     emoji.classList.add('lightEffect');
-    setCmtBox(true);
+    setCmtBtn(true);
+  }
+
+  const initCmtBox = () => {
   }
 
   return (
@@ -28,7 +32,7 @@ export default function App() {
           <div id='heading-two'>Your feedback is our motivation</div>
         </div>
         <EmojiBar removeEffect={removeEffect}/>
-        <div id='comment-area' className='hide'>hi</div>
+        <CommentBox />
         <ButtonBar initCmt={initCmt}/>
       </div>
     </div>

@@ -11,7 +11,8 @@ export default function ButtonBar({initCmt}) {
     return (
         <div id='button-bar' className='flex-row'>
             <button id='btnBlue' className='button'>
-                {initCmt ? 'SUBMIT' : 'COMMENT'}
+                COMMENT
+                {/* {initCmt ? 'SUBMIT' : 'COMMENT'} */}
             </button>
             <button id='btnRed' className='button'>
                 CANCEL
