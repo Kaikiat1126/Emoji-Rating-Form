@@ -6,6 +6,7 @@ import EmojiBar from './components/EmojiBar/EmojiBar'
 
 export default function App() {
   const [initCmt, setCmtState] = useState(0)
+  const [rating, setRating] = useState(0)
 
   const removeEffect = (e) => {
     const emoji = e.target;
@@ -19,6 +20,7 @@ export default function App() {
 
     emoji.classList.add('lightEffect');
     setCmtState(1);
+    setRating(emoji.alt.split('-')[1]);
   }
 
   const displayCommentBox = () => {
@@ -27,6 +29,10 @@ export default function App() {
     
     const btnBlue = document.getElementById('btnBlue');
     btnBlue.classList.add('disabled');
+
+    const comment = document.getElementById('comment');
+    comment.value = '';
+
     setTimeout(() => {
       btnBlue.innerText = 'SUBMIT';
     }, 1500);
@@ -34,14 +40,22 @@ export default function App() {
   }
 
   const submitComment = () => {
-    const comment = document.getElementById('comment');
-    const commentValue = comment.value;
-    console.log(commentValue);
-    comment.value = '';
+    const valueJson = valueToJSON();
+    console.log(valueJson);
     setCmtState(-1);
     setTimeout(() => {
-      alert('Thank you for your feedback');
+      alert("Your feedback has been submitted");
     }, 1000);
+  }
+
+  const valueToJSON = () => {
+    const comment = document.getElementById('comment');
+    const commentValue = comment.value;
+    const data = {
+      rating: parseInt(rating),
+      comment: commentValue
+    }
+    return JSON.stringify(data);
   }
 
   const btnBlueEvent = () => initCmt === 1 ? displayCommentBox() : submitComment();
