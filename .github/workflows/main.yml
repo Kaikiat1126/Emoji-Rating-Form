@@ -1,0 +1,29 @@
+#This is a basic workflow to help you get start with Actions
+
+name: deploy-website
+
+on: 
+  push:
+    branches: [master]
+    
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: action/checkout@v2
+      - name: install nodejs
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: "14.X"
+      - name: install deps
+        run: npm install
+      - name: build app
+        run: npm run build
+      - name: copy dist file with scp
+        uses: appleboy/scp-action@v0.0.1
+        with: 
+          host: ""
+      
