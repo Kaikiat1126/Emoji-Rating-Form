@@ -24,3 +24,4 @@ jobs:
           folder: build # The folder the action should deploy.
           BRANCH: gh-pages # The branch the action should deploy to.
           Token: ${{ secrets.MY_TOKEN }} # This token is provided by Actions, you do not need to create your own token.
+          
