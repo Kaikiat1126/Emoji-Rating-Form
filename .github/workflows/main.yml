@@ -1,29 +1,26 @@
-#This is a basic workflow to help you get start with Actions
-
-name: deploy-website
-
-on: 
+# deploy.yml
+name: Build and Deploy
+on:
   push:
-    branches: [master]
-    
-  workflow_dispatch:
-  
+    branches:
+      - main # Set a branch to deploy
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
-      - uses: action/checkout@v2
-      - name: install nodejs
-        uses: actions/setup-node@v3.6.0
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm install yarn -g
+          yarn
+          yarn build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          node-version: "14.X"
-      - name: install deps
-        run: npm install
-      - name: build app
-        run: npm run build
-      - name: copy dist file with scp
-        uses: appleboy/scp-action@v0.0.1
-        with: 
-          host: ""
-      
+          folder: build # The folder the action should deploy.
+          BRANCH: gh-pages # The branch the action should deploy to.
+          Token: ${{ secrets.MY_TOKEN }} # This token is provided by Actions, you do not need to create your own token.
