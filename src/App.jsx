@@ -19,7 +19,7 @@ export default function App() {
     }
 
     emoji.classList.add('lightEffect');
-    setCmtState(1);
+    if(initCmt == 0) setCmtState(1);
     setRating(emoji.alt.split('-')[1]);
   }
 
@@ -61,7 +61,7 @@ export default function App() {
   const btnBlueEvent = () => initCmt === 1 ? displayCommentBox() : submitComment();
 
   useEffect(() => {
-    if(initCmt === -1) {
+    if(initCmt == -1) {
       const commentBox = document.getElementById('comment-box');
       commentBox.classList.add('hide');
       const btnBlue = document.getElementById('btnBlue');

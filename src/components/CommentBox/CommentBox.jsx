@@ -11,12 +11,17 @@ export default function CommentBox() {
     const allowSubmit = (e) => {
         const comment = e.target.value;
         const btnBlue = document.getElementById('btnBlue');
-        btnBlue.classList.toggle('disabled', comment.length < 2);
+        btnBlue.classList.toggle('disabled', comment.length <= 2);
     }
 
     return (
         <div id='comment-box'>
-            <textarea id='comment' placeholder='Write your comment here...' className='' onChange={allowSubmit}></textarea>
+            <textarea 
+                id='comment' 
+                placeholder='Write your comment here...' 
+                className='' 
+                onChange={allowSubmit}>
+            </textarea>
         </div>
     )
 }
